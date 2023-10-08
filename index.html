@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <style>
+        body{
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            font-family: "lato", sans-serif;
+        }
+        .container{
+            background-color: lightblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid lightgray;
+            border-radius: 35px;
+            margin: auto;
+            margin-top: 150px;
+            width:230px;
+            height: 300px;
+
+            padding: 10px;
+        } 
+        form{
+            padding-bottom: 80px;
+        }
+        input{
+            border: 2px;
+            border-radius: 10px;
+        }
+        input[type=button]{
+            width: 70px;
+            height: 25px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title"> <h2 >SignUp</h2></div>
+       
+        <form>
+            
+            <br>
+        <label for="email"><b>User Email</b></label><br>
+        <input type="text" id='email'name="email" required >
+        <br>
+        <br>
+        <label for="email"><b>Password</b></label><br>
+        <input type="password" id='pass' name="pass" required >
+        <br>
+        <br>
+        <input type="button" value="submit"onclick='validateinput()'>
+    </form>
+    </div>
+    <script>
+        function validateinput() {
+          
+          var email = document.getElementById("email").value;
+          var password = document.getElementById("pass").value;
+        
+          
+          var emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
+          var passwordLengthRegex = /^.{8,}$/;
+          var uppercaseRegex = /[A-Z]/;
+          var specialCharRegex = /[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]/;
+          var numberRegex = /\d/;
+        
+          if (!emailRegex.test(email)) {
+            alert("Invalid email address.");
+            return;
+          }
+        
+          
+          if (!passwordLengthRegex.test(password)) {
+            alert("Password must be at least 8 characters long.");
+            return;
+          }
+        
+          if (!uppercaseRegex.test(password)) {
+            alert("Password must contain at least one uppercase letter.");
+            return;
+          }
+        
+          if (!specialCharRegex.test(password)) {
+            alert("Password must contain at least one special character.");
+            return;
+          }
+        
+          if (!numberRegex.test(password)) {
+            alert("Password must contain at least one number.");
+            return;
+          }
+        
+          
+          alert("Successful");
+        }
+        </script>
+
+</body>
+</html>
